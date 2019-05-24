@@ -1,0 +1,24 @@
+<h2 mat-dialog-title>
+  <strong>Cadastro Realizado com Sucesso!</strong>
+</h2>
+
+<mat-dialog-content>
+
+  <h5 class="text-muted">Número do cadastro de Ambulante:</h5>
+  <p><strong>{{numeroRegistro}}</strong></p>
+  <br>
+
+  <h5 class="text-muted">Nome:</h5>
+  <p class="text-uppercase"><strong>{{ nome.value }}</strong></p>
+  <br>
+
+  <h5 class="text-muted">Site:</h5>
+  <p><strong>http://www.carnavaldebelohorizonte.com.br</strong></p>
+
+  <hr>
+
+</mat-dialog-content>
+
+<mat-dialog-actions align="center">
+  <button mat-flat-button color="primary" [mat-dialog-close]="true" cdkFocusInitial>Entendi</button>
+</mat-dialog-actions>

@@ -1,0 +1,47 @@
+.example-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.example-container > * {
+  width: 100%;
+}
+
+
+.example-form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
+
+.full-width {
+  width: 100%;
+  height: 100%;
+}
+
+#data-label{
+  position: relative;
+}
+#data-label label{
+  position: absolute;
+  left: 0px;
+  top: 8px;
+  font-size: 10px;
+  color: rgba(0,0,0,.54);
+}
+#data-label span{
+  position: absolute;
+  left: 1em;
+
+}
+
+.mat-raised-button {
+  line-height: 60px;
+  text-transform: uppercase;
+  font-weight: 800;
+}
+
+.mat-button{
+  line-height: 60px;
+}
+

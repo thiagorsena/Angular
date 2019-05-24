@@ -1,0 +1,16 @@
+.foto-webcam {
+  position: absolute;
+  top: -8px;
+  left: 16px;
+  padding-left: 980px;
+}
+
+.mat-form-field.mat-form-field {
+  text-transform: lowercase;
+}
+
+.mat-raised-button {
+  line-height: 60px;
+  text-transform: uppercase;
+  font-weight: 800;
+}

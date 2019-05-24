@@ -1,0 +1,56 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import '~bootstrap/dist/css/bootstrap.min.css';
+@import url('https://fonts.googleapis.com/css?family=Ropa+Sans');
+
+html,
+body {
+  margin: 0;
+  height: 100%;
+  width: 100%;
+  font-size: 14px;
+  font-family: 'Ropa Sans', sans-serif;
+}
+
+.mat-input, .mat-input-element, .mat-form-field, .mat-card, .mat-button, .mat-toolbar, .mat-cell, .mat-header-cell, .mat-dialog {
+  font-family: 'Ropa Sans', sans-serif;
+  font-size: 16px;
+}
+
+#section-header {
+  font-family: 'Ropa Sans', sans-serif;
+  font-size: 16px;
+}
+
+.mat-toolbar.mat-primary {
+  /* background: #168842; */
+  background: #cbdb2a;
+  /* background: url('../src/assets/images/logoBelotur.png') no-repeat top; */
+  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to bottom, #cbdb2a, #cbdb2a);
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to bottom, #cbdb2a, #cbdb2a);
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  font-family: 'Ropa Sans', sans-serif;
+  color: #168942;
+}
+
+.mat-flat-button.mat-primary {
+  font-family: 'Ropa Sans', sans-serif;
+  border-radius: 10px;
+  box-shadow: none;
+  cursor: pointer;
+  font-size: 18px;
+  line-height: 20px;
+  padding: 6px 16px;
+  position: relative;
+  text-align: center;
+  white-space: nowrap;
+  background-color: #168942;
+  border: 1px solid #168942;
+  color: #fff;
+}
+
+
+
+
