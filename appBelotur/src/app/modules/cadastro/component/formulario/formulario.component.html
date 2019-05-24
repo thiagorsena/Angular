@@ -1,0 +1,153 @@
+<mat-toolbar color="primary">
+  <div fxFlex="1 1 auto"></div>
+  <h2 class="section-header">{{ titulo }}</h2>
+  <div fxFlex="1 1 auto"></div>
+</mat-toolbar>
+
+<mat-card>
+  <mat-card-content>
+
+    <form [formGroup]="form">
+
+      <!-- <div class="container"> -->
+
+      <h2>Dados Pessoais</h2>
+
+      <div class="row">
+
+        <div class="col-sm-12">
+          <mat-form-field hintLabel="Qual o seu nome?" style="width: 100%;">
+            <input matInput placeholder="Nome Completo" formControlName="nome">
+          </mat-form-field>
+        </div>
+        <div class="col-sm-4">
+          <mat-form-field hintLabel="Max 11 characters" style="width: 100%;">
+            <input matInput type='text' mask="000.000.000-00" #input maxlength="14" placeholder="CPF" formControlName="cpf"
+              (change)="validarCpf()" required>
+            <mat-error *ngIf="cpfUsado"></mat-error>
+            <mat-hint align="end">{{input.value?.length || 0}}/11</mat-hint>
+          </mat-form-field>
+        </div>
+        <div class="col-sm-4">
+          <mat-form-field style="width: 100%;">
+            <input matInput placeholder="RG" formControlName="rg">
+          </mat-form-field>
+        </div>
+        <div class="col-sm-4">
+          <mat-form-field hintLabel="dd/mm/aaaa" style="width: 100%;">
+            <input matInput type='text' mask="00/00/0000" placeholder="Data de Nascimento" formControlName="dataNascimento">
+          </mat-form-field>
+        </div>
+
+        <div class="col-sm-4">
+          <mat-form-field style="width: 100%;">
+            <input matInput placeholder="Nome da Mãe" formControlName="nomeMae">
+          </mat-form-field>
+        </div>
+
+        <div class="col-sm-4">
+          <mat-form-field style="width: 100%;">
+            <input matInput placeholder="Nome do Pai" formControlName="nomePai">
+          </mat-form-field>
+        </div>
+
+        <div class="col-sm-4">
+          <mat-form-field style="width: 100%;">
+            <mat-select placeholder="Sexo" formControlName="sexo">
+              <mat-option value="masculino">Masculino</mat-option>
+              <mat-option value="feminino">Feminino</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+
+      </div>
+
+      <h2>Dados Complementares</h2>
+
+      <div class="row">
+
+        <div class="col-sm-4">
+          <mat-form-field style="width: 100%;">
+            <input matInput type='text' mask="00000-000" placeholder="CEP" formControlName="cep" (change)="validarCep()">
+          </mat-form-field>
+        </div>
+
+        <div class="col-sm-4">
+          <mat-form-field style="width: 100%;">
+            <input matInput placeholder="Endereço" formControlName="endereco">
+          </mat-form-field>
+        </div>
+
+        <div class="col-sm-4">
+          <mat-form-field style="width: 100%;">
+            <input matInput placeholder="Bairro" formControlName="bairro">
+          </mat-form-field>
+        </div>
+
+        <div class="col-sm-4">
+          <mat-form-field style="width: 100%;">
+            <input matInput placeholder="Nacionalidade" formControlName="nacionalidade">
+          </mat-form-field>
+        </div>
+
+        <div class="col-sm-4">
+          <mat-form-field style="width: 100%;">
+            <input matInput placeholder="Cidade" formControlName="cidade">
+          </mat-form-field>
+        </div>
+
+        <div class="col-sm-4">
+          <mat-form-field style="width: 100%;">
+            <input matInput type='text' mask="(000) 0000 0000" placeholder="Telefone Fixo" matTooltip="DDD e o número de telefone"
+              formControlName="telefone">
+          </mat-form-field>
+        </div>
+
+        <div class="col-sm-4">
+          <mat-form-field style="width: 100%;">
+            <input matInput type='text' mask="(000) 00000 0000" placeholder="Telefone Celular" matTooltip="DDD e o número de telefone"
+              formControlName="celular">
+          </mat-form-field>
+        </div>
+
+        <div class="col-sm-4">
+          <mat-form-field hintLabel="exemplo@email.com" style="width: 100%;">
+            <input matInput type="email" placeholder="E-mail" formControlName="email">
+          </mat-form-field>
+        </div>
+
+        <div class="col-sm-4">
+        </div>
+
+        <div class="row">
+
+          <div class="col-sm-1">
+          </div>
+
+          <div class="col-sm-1">
+            <button mat-flat-button color="primary" id="botao-adicionar" (click)="cadastrarDados(form.value)"
+              [disabled]="form.invalid">
+              <span>Cadastrar</span>
+            </button>
+          </div>
+
+          <div class="col-sm-1">
+          </div>
+
+        </div>
+
+        <div class="row">
+          <div class="col-sm-1">
+            <button mat-flat-button color="primary" id="botao-cancelar" routerLink="/login/">
+              <span>Cancelar</span>
+            </button>
+          </div>
+        </div>
+
+      </div>
+      <!-- </div> -->
+
+    </form>
+
+  </mat-card-content>
+</mat-card>

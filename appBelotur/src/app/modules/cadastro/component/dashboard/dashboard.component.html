@@ -1,0 +1,55 @@
+<mat-toolbar color="primary">
+  <div fxFlex="1 1 auto"></div>
+  <h2 class="section-header">{{ titulo }}</h2>
+  <div fxFlex="1 1 auto"></div>
+</mat-toolbar>
+
+<mat-card>
+
+  <div class="row">
+
+    <div class="col-sm-3">
+      <mat-card>
+        <mat-card-title>NOVO</mat-card-title>
+        <mat-card-content><h2>20</h2></mat-card-content>
+      </mat-card>
+    </div>
+
+    <div class="col-sm-3">
+        <mat-card>
+            <mat-card-title>APROVADO</mat-card-title>
+            <mat-card-content><h2>62</h2></mat-card-content>
+          </mat-card>
+    </div>
+
+    <div class="col-sm-3">
+        <mat-card>
+            <mat-card-title>PENDENTE</mat-card-title>
+            <mat-card-content><h2>38</h2></mat-card-content>
+          </mat-card>
+    </div>
+
+    <div class="col-sm-3">
+      <mat-card>
+          <mat-card-title>TOTAL</mat-card-title>
+          <mat-card-content><h2>58</h2></mat-card-content>
+        </mat-card>
+  </div>
+
+    <div class="col-sm-4">
+      <!-- <button (click)="add()">Add Point!</button> -->
+      <div [chart]="lineChart"></div>
+    </div>
+
+    <div class="col-sm-4">
+      <div [chart]="pieChart"></div>
+    </div>
+
+    <div class="col-sm-4">
+      <!-- <button (click)="add()">Add Point!</button> -->
+      <div [chart]="chart"></div>
+    </div>
+
+  </div>
+
+</mat-card>

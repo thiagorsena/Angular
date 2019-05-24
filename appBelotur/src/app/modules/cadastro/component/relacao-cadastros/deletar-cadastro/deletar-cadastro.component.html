@@ -1,0 +1,12 @@
+<h2 mat-dialog-title>Deseja Deletar o Cadastro?</h2>
+
+<mat-dialog-content>
+  <div [formGroup]="form" class="form-container">
+    <mat-form-field id="field-descricao" style="width: 100%;">
+      <input matInput #inputDesc maxlength="100" id="input-descricao" placeholder="CPF nº:" formControlName="cpf"
+        required />
+    </mat-form-field>
+  </div>
+  <button mat-button color="primary" (click)="deletarCadastro()">Sim</button>
+  <button mat-button color="primary" matDialogClose>Não</button>
+</mat-dialog-content>

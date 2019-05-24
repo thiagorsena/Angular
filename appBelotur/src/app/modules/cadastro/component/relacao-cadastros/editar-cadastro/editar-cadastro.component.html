@@ -1,0 +1,230 @@
+<mat-toolbar color="primary">
+  <div fxFlex="1 1 auto"></div>
+  <h2 class="section-header">{{ titulo }}</h2>
+  <div fxFlex="1 1 auto"></div>
+</mat-toolbar>
+
+<div class="row">
+
+  <mat-card>
+    <mat-card-content>
+
+      <form [formGroup]="form">
+
+        <!-- <div class="container"> -->
+
+        <h2>Dados Pessoais</h2>
+
+        <div class="row">
+
+          <div class="col-sm-8">
+            <mat-form-field style="width: 100%;">
+              <input matInput placeholder="Nome Completo" formControlName="nome">
+            </mat-form-field>
+          </div>
+          <div class="col-sm-4">
+            <input style="display: none" type="file" ng2FileSelect #fotoInput formControlName="foto" [uploader]="uploader" />
+            <button mat-raised-button (click)="fotoInput.click()">
+              <mat-icon>photo</mat-icon>Foto
+            </button>
+          </div>
+          <div class="col-sm-4">
+            <mat-form-field style="width: 100%;">
+              <input matInput type='text' mask="000.000.000-00" #input maxlength="14" placeholder="CPF" formControlName="cpf"
+                required>
+              <mat-hint align="end">{{input.value?.length || 0}}/11</mat-hint>
+            </mat-form-field>
+          </div>
+          <div class="col-sm-4">
+            <mat-form-field style="width: 100%;">
+              <input matInput placeholder="RG" formControlName="rg">
+            </mat-form-field>
+          </div>
+          <div class="col-sm-4">
+            <mat-form-field style="width: 100%;">
+              <input matInput type='text' mask="00/00/0000" placeholder="Data de Nascimento" formControlName="dataNascimento">
+            </mat-form-field>
+          </div>
+
+          <div class="col-sm-4">
+            <mat-form-field style="width: 100%;">
+              <input matInput placeholder="Nome da Mãe" formControlName="nomeMae">
+            </mat-form-field>
+          </div>
+
+          <div class="col-sm-4">
+            <mat-form-field style="width: 100%;">
+              <input matInput placeholder="Nome do Pai" formControlName="nomePai">
+            </mat-form-field>
+          </div>
+
+          <div class="col-sm-4">
+            <mat-form-field style="width: 100%;">
+              <mat-select placeholder="Sexo" formControlName="sexo">
+                <mat-option value="masculino">Masculino</mat-option>
+                <mat-option value="feminino">Feminino</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+
+        </div>
+
+        <h2>Dados Complementares</h2>
+
+        <div class="row">
+
+          <div class="col-sm-4">
+            <mat-form-field style="width: 100%;">
+              <input matInput type='text' mask="00000-000" placeholder="CEP" formControlName="cep" (change)="validarCep()">
+            </mat-form-field>
+          </div>
+
+          <div class="col-sm-4">
+            <mat-form-field style="width: 100%;">
+              <input matInput placeholder="Endereço" formControlName="endereco">
+            </mat-form-field>
+          </div>
+
+          <div class="col-sm-4">
+            <mat-form-field style="width: 100%;">
+              <input matInput placeholder="Bairro" formControlName="bairro">
+            </mat-form-field>
+          </div>
+
+          <div class="col-sm-4">
+            <mat-form-field style="width: 100%;">
+              <input matInput placeholder="Nacionalidade" formControlName="nacionalidade">
+            </mat-form-field>
+          </div>
+
+          <div class="col-sm-4">
+            <mat-form-field style="width: 100%;">
+              <input matInput placeholder="Cidade" formControlName="cidade">
+            </mat-form-field>
+          </div>
+
+          <div class="col-sm-4">
+            <mat-form-field style="width: 100%;">
+              <input matInput type='text' mask="(000) 0000 0000" placeholder="Telefone Fixo" matTooltip="DDD e o número de telefone"
+                formControlName="telefone">
+            </mat-form-field>
+          </div>
+
+          <div class="col-sm-4">
+            <mat-form-field style="width: 100%;">
+              <input matInput type='text' mask="(000) 00000 0000" placeholder="Telefone Celular" matTooltip="DDD e o número de telefone"
+                formControlName="celular">
+            </mat-form-field>
+          </div>
+
+          <div class="col-sm-4">
+            <mat-form-field hintLabel="exemplo@email.com" style="width: 100%;">
+              <input matInput type='email' placeholder="E-mail" formControlName="email" required>
+            </mat-form-field>
+          </div>
+
+          <!-- <div class="col-sm-4">
+              </div> -->
+
+          <div class="col-sm-4">
+            <input style="display: none" type="file" ng2FileSelect #anexo1Input formControlName="anexo1" [uploader]="uploader"
+              multiple />
+            <button mat-raised-button class="btn-lg btn-block" (click)="anexo1Input.click()">
+              <mat-icon>attach_file</mat-icon>Anexar Arquivos
+            </button>
+          </div>
+
+          <!-- <div class="col-sm-4">
+                <input style="display: none" type="file" ng2FileSelect #anexo2Input formControlName="anexo2" [uploader]="uploader"/>
+                <button mat-raised-button (click)="anexo2Input.click()">
+                  <mat-icon>attach_file</mat-icon>Anexo 2
+                </button>
+              </div>
+
+              <div class="col-sm-4">
+                <input style="display: none" type="file" ng2FileSelect #anexo3Input formControlName="anexo3" [uploader]="uploader"/>
+                <button mat-raised-button (click)="anexo3Input.click()">
+                  <mat-icon>attach_file</mat-icon>Anexo 2
+                </button>
+              </div> -->
+
+          <div class="row">
+
+            <div class="col-sm-1">
+            </div>
+
+            <div class="col-sm-1">
+              <button mat-flat-button color="primary" class="btn-editar" (click)="editarDados(form.value)">
+                <span>Salvar</span>
+              </button>
+            </div>
+
+            <div class="col-sm-1">
+            </div>
+
+          </div>
+
+          <div class="row">
+
+            <div class="col-sm-1">
+              <button mat-flat-button color="primary" id="botao-adicionar-tipo" matDialogClose>
+                <span>Cancelar</span>
+              </button>
+            </div>
+
+            <div class="col-sm-2">
+            </div>
+
+          </div>
+
+          <!-- Status dos Arquivos Anexados -->
+          <div class="col-sm-8">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Size</th>
+                  <th>Progress</th>
+                  <th>Status</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let item of uploader.queue">
+                  <td><strong>{{ item?.file?.name }}</strong></td>
+                  <td *ngIf="uploader.isFile" nowrap>{{ item?.file?.size/1024/1024 | number:'.2' }} MB</td>
+                  <td *ngIf="uploader.isFile">
+                    <div class="progress" style="margin-bottom: 0;">
+                      <div class="progress-bar" role="progressbar" [ngStyle]="{ 'width': item.progress + '%' }"></div>
+                    </div>
+                  </td>
+                  <td class="text-center">
+                    <span *ngIf="item.isSuccess"><i class="glyphicon glyphicon-ok"></i></span>
+                    <span *ngIf="item.isCancel"><i class="glyphicon glyphicon-ban-circle"></i></span>
+                    <span *ngIf="item.isError"><i class="glyphicon glyphicon-remove"></i></span>
+                  </td>
+                  <td nowrap>
+                    <button type="button" class="btn btn-success btn-xs" (click)="item.upload()" [disabled]="item.isReady || item.isUploading || item.isSuccess">
+                      <span class="glyphicon glyphicon-upload"></span> Upload
+                    </button>
+                    <button type="button" class="btn btn-warning btn-xs" (click)="item.cancel()" [disabled]="!item.isUploading">
+                      <span class="glyphicon glyphicon-ban-circle"></span> Cancel
+                    </button>
+                    <button type="button" class="btn btn-danger btn-xs" (click)="item.remove()">
+                      <span class="glyphicon glyphicon-trash"></span> Remove
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+
+          </div>
+
+        </div>
+
+      </form>
+
+    </mat-card-content>
+  </mat-card>
+
+</div>

@@ -1,0 +1,27 @@
+<div fxLayout="row" fxLayoutAlign="center center" class="login-container">
+
+  <form [formGroup]="form">
+    <mat-card class="login-card">
+      <mat-card-title>Acessar</mat-card-title>
+      <mat-card-subtitle>Preencha os campos</mat-card-subtitle>
+      <mat-card-content>
+        <div fxLayout="col wrap">
+          <mat-form-field hintLabel="Max 11 characters" fxFlex="100%">
+            <mat-label>CPF</mat-label>
+            <input matInput type='text' minlength="11" matTooltip="CPF - Deve conter 11 characters" matTooltipPosition="above" mask="000.000.000-00" formControlName="cpf" required>
+          </mat-form-field>
+          <mat-form-field fxFlex="100%">
+            <mat-label>Senha</mat-label>
+            <input matInput type="password" minlength="6" matTooltip="Senha - De 6 a 8 characters" matTooltipPosition="above" formControlName="senha" required>
+          </mat-form-field>
+        </div>
+      </mat-card-content>
+      <div fxLayout="col wrap" fxLayoutAlign="center end" class="login-card-actions">
+        <button mat-flat-button fxFlex="100%" id="btn-acessar" (click)="acessar()" [disabled]="form.invalid">Acessar</button>
+        <!-- <button mat-flat-button fxFlex="100%" id="btn-acessar" routerLink="/app" [disabled]="form.invalid">Acessar</button>
+        <button mat-flat-button fxFlex="100%" id="btn-signup" routerLink="/signup" [disabled]="form.invalid">Registrar</button> -->
+      </div>
+    </mat-card>
+  </form>
+
+</div>

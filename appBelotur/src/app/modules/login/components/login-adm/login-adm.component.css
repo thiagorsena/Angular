@@ -1,0 +1,17 @@
+.login-container {
+  height: 100%;
+  width: 100%;
+  background: url('../../../../../assets/images/imgLogin.jpg') no-repeat center;
+}
+
+.mat-card {
+  border-radius: 10px;
+}
+
+#btn-acessar {
+  margin-bottom: 8px !important;
+}
+
+.login-card-actions {
+display: inherit;
+}
