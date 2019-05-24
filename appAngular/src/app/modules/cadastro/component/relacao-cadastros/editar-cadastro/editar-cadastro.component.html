@@ -1,0 +1,244 @@
+<mat-toolbar color="primary">
+  <div fxFlex="1 1 auto"></div>
+  <h2 class="section-header">{{ titulo }}</h2>
+  <div fxFlex="1 1 auto"></div>
+</mat-toolbar>
+
+<div class="row">
+
+  <mat-card>
+    <mat-card-content>
+
+      <form [formGroup]="form">
+
+        <!-- <div class="container"> -->
+
+        <h2>Dados Pessoais</h2>
+
+        <div class="row">
+
+          <div class="col-sm-12">
+            <mat-form-field style="width: 100%;" appearance="outline">
+              <input matInput formControlName="nome" class="text-uppercase" readonly="{{permissaoEditar}}">
+            </mat-form-field>
+          </div>
+
+          <div class="col-sm-4">
+            <mat-form-field style="width: 100%;" appearance="outline">
+              <input matInput type='text' mask="000.000.000-00" #input maxlength="14" placeholder="CPF" formControlName="cpf"
+                (change)="validarCpf()" readonly="{{permissaoEditar}}">
+              <mat-hint align="end">{{input.value?.length || 0}}/11</mat-hint>
+            </mat-form-field>
+          </div>
+          <div class="col-sm-4">
+            <mat-form-field style="width: 100%;" appearance="outline">
+              <input matInput placeholder="RG" formControlName="rg" class="text-uppercase" readonly="{{permissaoEditar}}">
+            </mat-form-field>
+          </div>
+          <div class="col-sm-2">
+            <mat-form-field style="width: 100%;" appearance="outline">
+              <input matInput type='text' mask="00/00/0000" placeholder="Data de Nascimento" formControlName="dataNascimento"
+                class="text-uppercase" readonly="{{permissaoEditar}}">
+            </mat-form-field>
+          </div>
+
+          <div class="col-sm-2">
+            <mat-form-field style="width: 100%;" hintLabel="Primeira vez que cadastra?" appearance="outline">
+              <input matInput placeholder="Primeira vez que cadastra?" formControlName="primeiroCadastro" class="text-uppercase"
+                readonly="{{permissaoEditar}}">
+            </mat-form-field>
+          </div>
+
+          <div class="col-sm-4">
+            <mat-form-field style="width: 100%;" appearance="outline">
+              <input matInput placeholder="Nome da Mãe" formControlName="nomeMae" class="text-uppercase" readonly="{{permissaoEditar}}">
+            </mat-form-field>
+          </div>
+
+          <div class="col-sm-4">
+            <mat-form-field style="width: 100%;" appearance="outline">
+              <input matInput placeholder="Nome do Pai" formControlName="nomePai" class="text-uppercase" readonly="{{permissaoEditar}}">
+            </mat-form-field>
+          </div>
+
+          <div class="col-sm-4">
+            <mat-form-field style="width: 100%;" appearance="outline">
+              <input matInput placeholder="GÊNERO" formControlName="sexo" class="text-uppercase" readonly="{{permissaoEditar}}">
+              <!-- <mat-option value="Masculino">Masculino</mat-option>
+                <mat-option value="Feminino">Feminino</mat-option>
+                <mat-option value="Outro">Outro</mat-option>
+                <mat-option value="Prefiro não dizer">Prefiro não dizer</mat-option>
+              </input> -->
+            </mat-form-field>
+          </div>
+
+          <div class="col-sm-4">
+            <mat-form-field style="width: 100%;" appearance="outline">
+              <input matInput placeholder="Escolaridade" formControlName="escolaridade" class="text-uppercase" readonly="{{permissaoEditar}}">
+            </mat-form-field>
+          </div>
+
+          <div class="col-sm-4">
+            <mat-form-field style="width: 100%;" appearance="outline">
+              <input matInput placeholder="Estado Civil" formControlName="estadoCivil" class="text-uppercase" readonly="{{permissaoEditar}}">
+            </mat-form-field>
+          </div>
+
+          <div class="col-sm-4">
+            <mat-form-field style="width: 100%;" appearance="outline">
+              <input matInput placeholder="Profissão" formControlName="profissao" class="text-uppercase" readonly="{{permissaoEditar}}">
+            </mat-form-field>
+          </div>
+
+        </div>
+
+        <h2>Dados Complementares</h2>
+
+        <div class="row">
+
+          <div class="col-sm-2">
+            <mat-form-field style="width: 100%;" appearance="outline">
+              <input matInput type='text' mask="00000-000" placeholder="CEP" formControlName="cep" (change)="validarCep()"
+                readonly="{{permissaoEditar}}">
+            </mat-form-field>
+          </div>
+
+          <div class="col-sm-4">
+            <mat-form-field style="width: 100%;" appearance="outline">
+              <input matInput placeholder="Av./Rua *" formControlName="endereco" class="text-uppercase" readonly="{{permissaoEditar}}">
+            </mat-form-field>
+          </div>
+
+          <div class="col-sm-2">
+            <mat-form-field style="width: 100%;" appearance="outline">
+              <input matInput placeholder="Nº" mask="0000000000" formControlName="numero" readonly="{{permissaoEditar}}">
+            </mat-form-field>
+          </div>
+
+          <div class="col-sm-2">
+            <mat-form-field style="width: 100%;" appearance="outline">
+              <input matInput placeholder="Complemento" formControlName="complemento" class="text-uppercase" readonly="{{permissaoEditar}}">
+            </mat-form-field>
+          </div>
+
+          <div class="col-sm-2">
+            <mat-form-field style="width: 100%;" appearance="outline">
+              <input matInput placeholder="UF" formControlName="uf" class="text-uppercase" readonly="{{permissaoEditar}}">
+            </mat-form-field>
+          </div>
+
+          <div class="col-sm-4">
+            <mat-form-field style="width: 100%;" appearance="outline">
+              <input matInput placeholder="Bairro" formControlName="bairro" class="text-uppercase" readonly="{{permissaoEditar}}">
+            </mat-form-field>
+          </div>
+
+          <div class="col-sm-4">
+            <mat-form-field style="width: 100%;" appearance="outline">
+              <input matInput placeholder="Cidade" formControlName="cidade" class="text-uppercase" readonly="{{permissaoEditar}}">
+            </mat-form-field>
+          </div>
+
+          <div class="col-sm-4">
+            <mat-form-field style="width: 100%;" appearance="outline">
+              <input matInput type='text' mask="(00) 0000 0000" placeholder="Telefone Fixo" matTooltip="DDD e o número de telefone"
+                formControlName="telefone" class="text-uppercase" readonly="{{permissaoEditar}}">
+            </mat-form-field>
+          </div>
+
+          <div class="col-sm-4">
+            <mat-form-field style="width: 100%;" appearance="outline">
+              <input matInput type='text' mask="(00) 00000 0000" placeholder="Telefone Celular" matTooltip="DDD e o número de telefone"
+                formControlName="celular" class="text-uppercase" readonly="{{permissaoEditar}}">
+            </mat-form-field>
+          </div>
+
+          <div class="col-sm-4">
+            <mat-form-field hintLabel="exemplo@email.com" style="width: 100%;" appearance="outline">
+              <input matInput type='email' placeholder="E-MAIL" formControlName="email" readonly="{{permissaoEditar}}">
+            </mat-form-field>
+          </div>
+
+          <!-- <div class="col-sm-4">
+                </div> -->
+
+          <!-- <div class="col-sm-2">
+            <input style="display: none" type="file" ng2FileSelect #anexo1Input formControlName="anexo1" [uploader]="uploader"
+              multiple />
+            <button mat-raised-button btn-block (click)="anexo1Input.click()">
+              <mat-icon>attach_file</mat-icon>Anexar Arquivo
+            </button>
+          </div> -->
+
+          <!-- <div class="col-sm-2">
+            <button mat-raised-button btn-block routerLink="/app/cadastro/cracha/">
+              <mat-icon>add_a_photo</mat-icon> Foto
+            </button>
+          </div> -->
+
+          <!-- <div class="col-sm-4">
+                  <input style="display: none" type="file" ng2FileSelect #anexo2Input formControlName="anexo2" [uploader]="uploader"/>
+                  <button mat-raised-button (click)="anexo2Input.click()">
+                    <mat-icon>attach_file</mat-icon>Anexo 2
+                  </button>
+                </div>
+
+                <div class="col-sm-4">
+                  <input style="display: none" type="file" ng2FileSelect #anexo3Input formControlName="anexo3" [uploader]="uploader"/>
+                  <button mat-raised-button (click)="anexo3Input.click()">
+                    <mat-icon>attach_file</mat-icon>Anexo 2
+                  </button>
+                </div> -->
+        </div>
+
+        <h2>Visualizar Anexos</h2>
+
+        <div class="row">
+
+          <div class="col-sm-2">
+            <button mat-button (click)="gerarAnexos()"> Anexo 1 - CPF</button>
+          </div>
+
+          <div class="col-sm-2">
+            <button mat-button (click)="gerarAnexos()">Anexo 2 - RG</button>
+          </div>
+
+          <div class="col-sm-2">
+            <button mat-button (click)="gerarAnexos()">Anexo 3 - RESIDENCIA</button>
+          </div>
+
+          <div class="col-sm-2">
+            <button mat-button (click)="gerarAnexos()">Anexo 4 - ADESAO</button>
+          </div>
+
+          <div class="col-sm-8">
+          </div>
+
+        </div>
+
+        <br>
+
+        <div class="row">
+          <div class="col-sm-1">
+            <button mat-flat-button color="primary" id="botao-adicionar-tipo" matDialogClose>
+              <span>Fechar</span>
+            </button>
+          </div>
+
+          <div class="col-x1">
+            <button mat-flat-button color="primary" class="btn-editar" *ngIf="permissaoEditar === false" (click)="editarDados(form.value)">
+                <span>Salvar</span>
+              </button>
+          </div>
+
+          <div class="col-sm-10">
+          </div>
+
+        </div>
+
+      </form>
+
+    </mat-card-content>
+  </mat-card>
+
+</div>

@@ -1,0 +1,139 @@
+/* Navbar */
+
+.navbar-container {
+  display: flex;
+  /* width: 100%;
+  padding-top: 50px; */
+  /* height: 100px; */
+  /* background: url('../../../../assets/images/logoBelotur2.png') no-repeat left; */
+  background: #168942;
+  /* background-size: 60%; */
+  color: #fff;
+  /* text-transform: uppercase; */
+}
+
+.brand-container {
+  padding-left: 6px;
+  font-size: 18px;
+}
+
+.img-sidenav {
+  padding-left: 60px;
+  display: flex;
+  vertical-align: -webkit-baseline-middle;
+}
+
+.user-menu-box {
+  padding: 8px;
+}
+
+.settings-menu-box {
+  width: 100%;
+}
+
+/* #financeiro-button-box
+{
+  height: 100%;
+  bottom: 0;
+}
+
+.mat-button-wrapper a:focus a:hover {
+  color: #fbfbfb;
+}
+
+#botao-cadastros-dashboard {
+  border-bottom: 3px solid #168842;
+  width: 150px;
+  height: 100%;
+}
+
+#botao-financeiro-cadastros:hover {
+  background: #e0fcf5;
+}
+
+#botao-financeiro-cadastros {
+  border-bottom: 3px solid #168842;
+  width: 150px;
+  height: 100%;
+}
+
+#botao-financeiro-cadastros:hover{
+  background: #168842;
+}
+
+#botao-financeiro-ficha {
+  border-bottom: 3px solid #168842;
+  width: 150px;
+  height: 100%;
+}
+
+#botao-financeiro-ficha:hover{
+  background: #168842;
+}
+
+#botao-financeiro-recursos {
+  border-bottom: 3px solid #168842;
+  width: 150px;
+  height: 100%;
+}
+
+#botao-financeiro-recursos:hover{
+  background: #168842;
+}
+
+#botao-financeiro-cadastros {
+  border-bottom: 3px solid #168842;
+  width: 150px;
+  height: 100%;
+}
+
+#botao-financeiro-cadastros:hover{
+  background: #168842;
+} */
+
+/* Sidenav */
+.sidenav {
+  width: 140px;
+}
+
+.sidenav-container {
+  top: 64px !important;
+  /* top: 94px !important; */
+  width: 100%;
+}
+
+.menu-button-item {
+  width: 100%;
+  text-align: left;
+  padding-top: 8px;
+  padding-bottom: 6px;
+}
+
+.menu-button-icon {
+  margin-right: 8px;
+}
+
+.content-container {
+  padding: 6px;
+  /* padding: 4px; */
+}
+
+.is-active-dashboard {
+  border-right: 3px solid #168842 !important;
+  background: #fbfbfb;
+}
+
+.is-active-ficha {
+  border-right: 3px solid #168842 !important;
+  background: #fbfbfb;
+}
+
+.is-active-cadastros {
+  border-right: 3px solid #168842 !important;
+  background: #fbfbfb;
+}
+
+.is-active-gerencial {
+  border-right: 3px solid #168842 !important;
+  background: #fbfbfb;
+}

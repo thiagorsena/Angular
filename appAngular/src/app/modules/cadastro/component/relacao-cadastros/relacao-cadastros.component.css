@@ -1,0 +1,13 @@
+.mat-header-cell {
+  font-size: 14px;
+}
+
+/* Structure */
+.example-container {
+  position: relative;
+}
+
+.example-table-container {
+  position: relative;
+  overflow: auto;
+}

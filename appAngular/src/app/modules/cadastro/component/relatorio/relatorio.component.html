@@ -1,0 +1,30 @@
+<mat-toolbar color="primary">
+  <div fxFlex="1 1 auto"></div>
+  <h2 class="section-header">{{ titulo }}</h2>
+  <div fxFlex="1 1 auto"></div>
+</mat-toolbar>
+
+<mat-card>
+  <mat-card-content>
+
+    <div class="row">
+
+      <div class="col-sm-1">
+        <button mat-flat-button color="primary" id="botao-adicionar" (click)="gerarRelatorio()">
+          <span>Gerar Excel</span>
+        </button>
+      </div>
+
+      <div class="col-xl">
+        <button mat-flat-button color="primary" id="botao-adicionar" (click)="gerarRelatorioPdf()">
+          <span>Gerar Crachás</span>
+        </button>
+      </div>
+
+      <div class="col-sm-10">
+      </div>
+
+    </div>
+
+  </mat-card-content>
+</mat-card>

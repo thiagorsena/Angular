@@ -1,0 +1,68 @@
+<!-- <div style="text-align:center"> -->
+<!-- <h1>
+      Ngx-Webcam Demo
+    </h1> -->
+
+<!-- <div class="row">
+  <div class="col-sm-1">
+    <div class="btn-webcam">
+      <button mat-raised-button (click)="triggerSnapshot();">
+        <mat-icon>add_a_photo</mat-icon>
+      </button>
+    </div>
+  </div> -->
+
+  <div class="row">
+    <div class="col-sm-2">
+
+        <br>
+
+      <div class="btn-webcam">
+        <button mat-raised-button (click)="triggerSnapshot();"> Foto
+          <mat-icon>add_a_photo</mat-icon>
+        </button>
+      </div>
+    </div>
+
+    <div class="col-sm-2">
+
+      <webcam [height]="702" [width]="154" [trigger]="triggerObservable" (imageCapture)="handleImage($event)" *ngIf="showWebcam"
+        [allowCameraSwitch]="allowCameraSwitch" [switchCamera]="nextWebcamObservable" [videoOptions]="videoOptions"
+        (cameraSwitched)="cameraWasSwitched($event)" (initError)="handleInitError($event)"></webcam>
+
+        <div class="snapshot" *ngIf="webcamImage">
+          <!-- <h6>Nice one!</h6> -->
+          <img [src]="webcamImage.imageAsDataUrl"/>
+          <!-- <img [src]="webcamImage.imageAsBase64"/> -->
+        </div>
+
+      <br />
+
+      <!-- <button class="actionBtn" (click)="toggleWebcam();">Ver Webcam</button> -->
+      <br />
+      <!-- <button class="actionBtn" (click)="showNextWebcam(true);" [disabled]="!multipleWebcamsAvailable">Next Webcam</button> -->
+      <!-- <input id="cameraSwitchCheckbox" type="checkbox" [(ngModel)]="allowCameraSwitch"><label for="cameraSwitchCheckbox">Allow Camera Switch</label> -->
+      <br />
+      <!-- DeviceId: <input id="deviceId" type="text" [(ngModel)]="deviceId" style="width: 500px"> -->
+      <!-- <button (click)="showNextWebcam(deviceId);">Activate</button> -->
+
+    </div>
+
+    <div class="col-sm-2">
+
+      <div class="snapshot" *ngIf="webcamImage">
+        <!-- <h6>Nice one!</h6> -->
+        <!-- <img [src]="webcamImage.imageAsDataUrl"/> -->
+        <!-- <img [src]="webcamImage.imageAsBase64"/> -->
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- </div> -->
+
+  <h4 *ngIf="errors.length > 0">Messages:</h4>
+  <ul *ngFor="let error of errors">
+    <li>{{error | json}}</li>
+  </ul>

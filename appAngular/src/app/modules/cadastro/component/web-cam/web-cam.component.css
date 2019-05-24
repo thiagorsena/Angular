@@ -1,0 +1,11 @@
+.btn-webcam {
+  padding-right: 600px;
+}
+
+.mat-raised-button {
+  line-height: 50px;
+  text-transform: uppercase;
+  font-weight: 800;
+  background-color: #168942;
+  color: white;
+}

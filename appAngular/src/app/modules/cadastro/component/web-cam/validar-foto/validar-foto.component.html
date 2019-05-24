@@ -1,0 +1,27 @@
+<h2 mat-dialog-title> Deseja Enviar a Foto?</h2>
+
+<mat-dialog-content class="mat-typography">
+  <h4>Clique SIM para Enviar a foto
+    <br> NÃO para voltar
+</h4>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+
+  <div class="row">
+
+    <div class="col-sm">
+      <button mat-flat-button color="primary" (click)="fecharDialog()" cdkFocusInitial>
+        <span> Sim</span>
+      </button>
+    </div>
+
+    <div class="col-sm">
+      <button mat-flat-button color="primary" [mat-dialog-close] cdkFocusInitial>
+        <span> Não</span>
+      </button>
+    </div>
+
+  </div>
+
+</mat-dialog-actions>
