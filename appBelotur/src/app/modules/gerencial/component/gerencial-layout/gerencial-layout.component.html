@@ -1,0 +1,93 @@
+<mat-toolbar color="primary">
+  <div fxFlex="1 1 auto"></div>
+  <h2 class="section-header">{{ titulo }}</h2>
+  <div fxFlex="1 1 auto"></div>
+</mat-toolbar>
+
+<mat-card>
+  <h3>Gerenciar Usuários</h3>
+  <br>
+  <mat-card-content>
+
+    <div class="row">
+      <div class="col-sm-12">
+
+        <mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort>
+
+          <!-- Checkbox -->
+          <ng-container matColumnDef="Selecao">
+            <mat-header-cell *matHeaderCellDef>
+              <mat-checkbox (change)="$event ? masterToggle() : null" [checked]="selection.hasValue() && isAllSelected()"
+                [indeterminate]="selection.hasValue() && !isAllSelected()" color="primary">
+              </mat-checkbox>
+            </mat-header-cell>
+            <mat-cell *matCellDef="let row">
+              <mat-checkbox (click)="$event.stopPropagation()" (change)="$event ? selection.toggle(row) : null"
+                [checked]="selection.isSelected(row)" color="primary">
+              </mat-checkbox>
+            </mat-cell>
+          </ng-container>
+
+          <!-- Id Column -->
+          <ng-container matColumnDef="id">
+            <mat-header-cell *matHeaderCellDef> ID </mat-header-cell>
+            <mat-cell *matCellDef="let usuario"> {{usuario.id}} </mat-cell>
+          </ng-container>
+
+          <!-- nome Column -->
+          <ng-container matColumnDef="nome">
+            <mat-header-cell *matHeaderCellDef> NOME </mat-header-cell>
+            <mat-cell *matCellDef="let usuario"> {{usuario.nome}} </mat-cell>
+          </ng-container>
+
+          <!-- cpf Column -->
+          <ng-container matColumnDef="cpf">
+            <mat-header-cell *matHeaderCellDef> CPF </mat-header-cell>
+            <mat-cell *matCellDef="let usuario"> {{usuario.cpf}} </mat-cell>
+          </ng-container>
+
+          <!-- Permissões Column -->
+          <ng-container matColumnDef="tipo">
+            <mat-header-cell *matHeaderCellDef> TIPO </mat-header-cell>
+            <mat-cell *matCellDef="let usuario"> {{usuario.cargo}} </mat-cell>
+          </ng-container>
+
+          <!-- Email Column -->
+          <ng-container matColumnDef="email">
+            <mat-header-cell *matHeaderCellDef> E-MAIL </mat-header-cell>
+            <mat-cell *matCellDef="let usuario"> {{usuario.email}} </mat-cell>
+          </ng-container>
+
+          <!-- Botão editar -->
+          <ng-container matColumnDef="Editar">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>Editar</mat-header-cell>
+            <mat-cell *matCellDef="let row" class="action-cell">
+              <button mat-icon-button (click)="editarPermissao(row)">
+                <mat-icon>edit</mat-icon>
+              </button>
+            </mat-cell>
+          </ng-container>
+
+          <!-- Botão excluir -->
+          <ng-container matColumnDef="Excluir">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>Excluir</mat-header-cell>,
+            <mat-cell *matCellDef="let row" class="action-cell">
+              <button mat-icon-button (click)="deletarUsuario()">
+                <mat-icon>delete</mat-icon>
+              </button>
+            </mat-cell>
+          </ng-container>
+
+          <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+          <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+        </mat-table>
+
+        <mat-paginator [pageSizeOptions]="[10, 15, 20]"></mat-paginator>
+
+      </div>
+    </div>
+
+  </mat-card-content>
+</mat-card>
+
+<router-outlet></router-outlet>

@@ -1,0 +1,109 @@
+<mat-toolbar color="primary">
+  <div fxFlex="1 1 auto"></div>
+  <h2 class="section-header">{{ titulo }}</h2>
+  <div fxFlex="1 1 auto"></div>
+</mat-toolbar>
+
+<mat-card fxFlex="1 1 auto">
+  <mat-card-content>
+
+    <div class="row">
+      <div class="col-sm-4">
+        <!-- Input filtrar -->
+        <mat-form-field id="container-filtrar" color="primary">
+          <input matInput placeholder="Pesquisar" id="input-filtrar" (keyup)="onFiltrar($event.target.value)">
+          <mat-icon matSuffix>search</mat-icon>
+        </mat-form-field>
+      </div>
+      <div class="col-sm-4">
+        <!-- Botao Novo Cadastro -->
+        <button mat-raised-button routerLink="/app/cadastro/novo-cadastro" color="primary">Novo Cadastro</button>
+      </div>
+      <div class="col-sm-4"></div>
+    </div>
+
+    <!-- Tabela -->
+
+    <div class="example-table-container">
+
+      <mat-table [dataSource]="dataSource" class="example-table" matSort>
+
+        <!-- Checkbox -->
+        <ng-container matColumnDef="Selecao">
+          <mat-header-cell *matHeaderCellDef>
+            <mat-checkbox (change)="$event ? masterToggle() : null" [checked]="selection.hasValue() && isAllSelected()"
+              [indeterminate]="selection.hasValue() && !isAllSelected()" color="primary">
+            </mat-checkbox>
+          </mat-header-cell>
+          <mat-cell *matCellDef="let row">
+            <mat-checkbox (click)="$event.stopPropagation()" (change)="$event ? selection.toggle(row) : null" [checked]="selection.isSelected(row)"
+              color="primary">
+            </mat-checkbox>
+          </mat-cell>
+        </ng-container>
+
+        <!-- Id -->
+        <ng-container matColumnDef="Id">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> ID </mat-header-cell>
+          <mat-cell *matCellDef="let row">
+            {{row.id}}
+          </mat-cell>
+        </ng-container>
+
+        <!-- Categoria -->
+        <ng-container matColumnDef="Nome">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> Nome Completo </mat-header-cell>
+          <mat-cell *matCellDef="let row">
+            {{row.nome}}
+          </mat-cell>
+        </ng-container>
+
+        <!-- Cpf -->
+        <ng-container matColumnDef="Cpf">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> CPF </mat-header-cell>
+          <mat-cell *matCellDef="let row">
+            {{row.cpf}}
+          </mat-cell>
+        </ng-container>
+
+        <!-- Coluna Status -->
+        <ng-container matColumnDef="Status">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> Status </mat-header-cell>
+          <mat-cell *matCellDef="let row">
+            <mat-chip-list class="mat-chip-list-stacked">
+              <mat-chip *ngIf="row.status == 'aprovado'" color="primary" selected>Aprovado</mat-chip>
+              <!-- <mat-chip *ngIf="row.sexo == 'N'" color="accent" selected>Pendente</mat-chip> -->
+            </mat-chip-list>
+          </mat-cell>
+        </ng-container>
+
+        <!-- Botão editar -->
+        <ng-container matColumnDef="Editar">
+          <mat-header-cell *matHeaderCellDef mat-sort-header>Editar</mat-header-cell>
+          <mat-cell *matCellDef="let row" class="action-cell">
+            <button mat-icon-button (click)="abrirAlterarContato(row)">
+              <mat-icon>edit</mat-icon>
+            </button>
+          </mat-cell>
+        </ng-container>
+        <!-- Botão excluir -->
+        <ng-container matColumnDef="Excluir">
+          <mat-header-cell *matHeaderCellDef mat-sort-header>Excluir</mat-header-cell>,
+          <mat-cell *matCellDef="let row" class="action-cell">
+            <button mat-icon-button (click)="deletarContato(row)">
+              <mat-icon>delete</mat-icon>
+            </button>
+          </mat-cell>
+        </ng-container>
+
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+        <!-- <mat-footer-row *matFooterRowDef></mat-footer-row> -->
+      </mat-table>
+
+    </div>
+
+    <mat-paginator [pageSizeOptions]="[10, 15, 20]"></mat-paginator>
+
+  </mat-card-content>
+</mat-card>

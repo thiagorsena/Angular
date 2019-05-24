@@ -1,0 +1,38 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import '~bootstrap/dist/css/bootstrap.min.css';
+
+.mat-toolbar.mat-primary {
+  /* background: #168842; */
+  background: #4b6cb7;
+  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to bottom, #4b6cb7, #182848);
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to bottom, #4b6cb7, #182848);
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.mat-flat-button.mat-primary {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  border-radius: 10px;
+  box-shadow: none;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: bold;
+  line-height: 20px;
+  padding: 6px 16px;
+  position: relative;
+  text-align: center;
+  white-space: nowrap;
+  background-color: #fff;
+  border: 1px solid #274072;
+  color: #274072;
+}
+
+html,
+body {
+  margin: 0;
+  height: 100%;
+  width: 100%;
+  font-size: 14px;
+}

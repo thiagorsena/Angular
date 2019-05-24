@@ -1,0 +1,68 @@
+<mat-toolbar class="navbar-container" color="primary">
+
+  <!-- Botão menu -->
+  <button mat-icon-button (click)="sidenav.toggle()" class="menu-button">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <div class="brand-container">{{ title }}</div>
+
+  <!-- Spacer -->
+  <span style="flex: 1 1 auto"></span>
+
+  <!-- Botões Barra Superior -->
+  <div id="cadastro-button-box" *ngIf="router.url.includes('/app/')">
+    <a mat-button *ngFor="let item of menuItems" routerLink="{{ item.route }}" [id]="item.color">{{ item.name }}
+      <!-- <mat-icon class="menu-button-icon">{{ item.icon }}</mat-icon> -->
+    </a>
+  </div>
+
+  <!-- Botões recurso -->
+  <!-- <div id="recurso-button-box" *ngIf="false">
+    <button mat-button>Item 1</button>
+    <button mat-button>Item 1</button>
+    <button mat-button>Item 1</button>
+  </div> -->
+
+  <button mat-icon-button class="menu-button" [matMenuTriggerFor]="userMenu">
+    <mat-icon>account_circle</mat-icon>
+  </button>
+
+  <!-- MENU DO USUÁRIO -->
+  <mat-menu #userMenu="matMenu" overlapTrigger="false">
+    <button mat-button style="width: 100%" (click)="sair()">Sair</button>
+    <!-- <div class="user-menu-box">
+      TODO: Menu do usuário
+    </div>
+    <mat-divider></mat-divider>
+    <div class="settings-menu-box" align="right">
+      <button mat-icon-button class="menu-button">
+        <mat-icon>account_box</mat-icon>
+      </button>
+    </div>
+    <mat-divider></mat-divider>
+    <div class="settings-menu-box" align="right">
+      <button mat-icon-button class="menu-button">
+        <mat-icon>settings</mat-icon>
+      </button>
+    </div> -->
+  </mat-menu>
+
+</mat-toolbar>
+
+<!-- Sidenav container -->
+<mat-sidenav-container class="sidenav-container" fullscreen>
+
+  <!-- Sidenav -->
+  <mat-sidenav #sidenav mode="side" opened="true" class="sidenav">
+    <a mat-button class="menu-button-item" *ngFor="let item of menuItems" routerLink="{{ item.route }}" routerLinkActive="{{ item.isActive }}">
+      <mat-icon class="menu-button-icon">{{ item.icon }}</mat-icon>
+      <span>{{ item.name }}</span>
+    </a>
+  </mat-sidenav>
+
+  <mat-sidenav-content class="content-container">
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
+
