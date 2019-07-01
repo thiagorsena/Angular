@@ -1,0 +1,28 @@
+<ng-progress [color]="'#3097D1'"></ng-progress>
+<nav class="navbar navbar-default navbar-static-top">
+  <div class="container">
+    <div class="navbar-header">
+      <a class="navbar-brand " routerLink="/">
+        Ng Book
+      </a>
+    </div>
+    <div>
+      <ul class="nav navbar-nav">
+        <li><a *ngIf="isLoggedIn()" routerLink="/dashboard">Dashboard</a></li>
+        <li><a *ngIf="isLoggedIn()" routerLink="/create/joke">Create joke</a></li>
+        <li *ngIf="user"><a *ngIf="isLoggedIn()" [routerLink]="['user/profile', user.id]">My Profile</a></li>
+      </ul>
+
+      <ul class="nav navbar-nav navbar-right">
+        <li><a *ngIf="!isLoggedIn()" routerLink="/auth/login">Login</a> </li>
+        <li><a *ngIf="!isLoggedIn()" routerLink="/auth/register">Register</a> </li>
+        <li><a *ngIf="isLoggedIn()" (click)="logout()">Logout</a> </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="container">
+  <app-notify></app-notify>
+  <router-outlet></router-outlet>
+</div>

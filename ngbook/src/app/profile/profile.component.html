@@ -1,0 +1,28 @@
+<div class="col-lg-4" *ngIf="user">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <p class="text-center">{{ user.name }} profile</p>
+    </div>
+    <div class="panel-body">
+      <div class="text-center">
+        <img [email]="user.email" gravatar [size]="100" style="border-radius: 50%" width="140px" height="140px" alt="">
+      </div>
+      <br>
+      <p class="text-center">
+        Joined Date: {{ user.joined | prettyDate }}
+      </p>
+      <br>
+      <p class="text-center" *ngIf="isAuthUserProfile()" routerLink="edit">
+        <a class="btn btn-info">Edit your profile</a>
+      </p>
+    </div>
+  </div>
+
+  <div *ngIf="!isAuthUserProfile()">
+    <app-follow [currentProfileId]="id"></app-follow>
+  </div>
+</div>
+
+<div class="col-lg-8">
+  <router-outlet></router-outlet>
+</div>
