@@ -42,7 +42,7 @@
     "ngx-cookie": "^4.0.2",
     "ngx-cookie-service": "^1.0.10",
     "ngx-mask": "^6.5.18",
-    "node-sass": "^4.9.3",
+    "node-sass": "^7.0.0",
     "popper.js": "^1.14.4",
     "rxjs": "~6.2.0",
     "web-animations-js": "^2.3.1",
